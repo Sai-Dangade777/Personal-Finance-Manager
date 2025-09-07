@@ -100,29 +100,15 @@ const Home = () => {
     }
     setLoading(true);
     try {
-      // Get token from localStorage only once
-      const userObj = JSON.parse(localStorage.getItem("user"));
-      const token = userObj?.token || userObj?.jwt;
-      const config = token
-        ? {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        : {};
-      const { data } = await axios.post(
-        addTransaction,
-        {
-          title,
-          amount,
-          description,
-          category,
-          date,
-          transactionType,
-          userId: cUser._id,
-        },
-        config
-      );
+      const { data } = await axios.post(addTransaction, {
+        title,
+        amount,
+        description,
+        category,
+        date,
+        transactionType,
+        userId: cUser._id,
+      });
       if (data.success === true) {
         toast.success(data.message, toastOptions);
         handleClose();

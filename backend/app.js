@@ -20,9 +20,8 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://personal-finance-manager-frontend.vercel.app",
   "https://personal-finance-manager-gold.vercel.app",
-  "https://main.d1sj7cd70hlter.amplifyapp.com",
-  "https://expense-tracker-app-three-beryl.vercel.app"
-  // add more as needed
+  // Add wildcard for any vercel.app subdomain for testing
+  /\.vercel\.app$/
 ];
 
 // Middleware
