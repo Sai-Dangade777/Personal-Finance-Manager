@@ -93,33 +93,36 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const { title, amount, description, category, date, transactionType } =
-      values;
-
-    if (
-      !title ||
-      !amount ||
-      !category ||
-      !date ||
-      !transactionType
-    ) {
+    const { title, amount, description, category, date, transactionType } = values;
+    if (!title || !amount || !category || !date || !transactionType) {
       toast.error("Please enter all the required fields", toastOptions);
       return;
     }
     setLoading(true);
-
     try {
-      const { data } = await axios.post(addTransaction, {
-        title: title,
-        amount: amount,
-        description: description,
-        category: category,
-        date: date,
-        transactionType: transactionType,
-        userId: cUser._id,
-      });
-
+      // Get token from localStorage only once
+      const userObj = JSON.parse(localStorage.getItem("user"));
+      const token = userObj?.token || userObj?.jwt;
+      const config = token
+        ? {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        : {};
+      const { data } = await axios.post(
+        addTransaction,
+        {
+          title,
+          amount,
+          description,
+          category,
+          date,
+          transactionType,
+          userId: cUser._id,
+        },
+        config
+      );
       if (data.success === true) {
         toast.success(data.message, toastOptions);
         handleClose();
