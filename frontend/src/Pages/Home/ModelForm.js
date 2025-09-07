@@ -121,7 +121,18 @@ const ModelForm = ({transaction, onClose, isShow}) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Submit</Button>
+          <Button 
+            variant="primary"
+            disabled={
+              !values.title ||
+              !values.amount ||
+              !values.category ||
+              !values.transactionType ||
+              !values.date
+            }
+          >
+            Submit
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>

@@ -1,13 +1,127 @@
 
-# Expense Management System using MERN Stack
+# Expense Tracker MERN Stack
 
-### Live Website: https://main.d1sj7cd70hlter.amplifyapp.com/
+A full-stack expense tracking application built with the MERN (MongoDB, Express.js, React.js, Node.js) stack. Track your income and expenses with an interactive dashboard, visualizations, and comprehensive transaction management.
 
-### Vercel Link: https://expense-tracker-app-three-beryl.vercel.app/
+![Expense Tracker](src/assets/logo.svg)
 
-## Project Description:
+## 🚀 Features
 
-    The Expense Management System is a web-based application designed to assist users in tracking and managing their daily expenses. This system is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js) to create a scalable, responsive, and user-friendly application.
+### User Management
+- 👤 User Authentication (Register/Login)
+- 🎭 Custom Avatar Selection using DiceBear API
+- 🔒 Secure JWT Authentication
+
+### Transaction Management
+- ➕ Add new transactions
+- 📝 Edit existing transactions
+- ❌ Delete transactions
+- 🏷️ Category-based organization
+- 💰 Support for both Income and Expense types
+
+### Advanced Filtering
+- 📅 Date Range Selection
+- 📊 Transaction Type Filtering
+- ⏰ Time Period Filters (7/15/30 days)
+- 🔍 Custom Date Range Search
+
+### Data Visualization
+- 📈 Line Progress Charts
+- 🔄 Circular Progress Charts
+- 📊 Analytics Dashboard
+- 📑 Table View & Chart View Toggle
+
+### UI/UX Features
+- 🎨 Responsive Bootstrap Design
+- ✨ Particle.js Background Effects
+- 🔔 Interactive Toast Notifications
+- ✅ Form Validations
+- 🔄 Loading States
+- 📱 Mobile-Friendly Interface
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Bootstrap & React-Bootstrap
+- Material-UI Icons
+- Chart.js for visualizations
+- Axios for API calls
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- JWT for authentication
+- Cors for secure cross-origin requests
+
+### Development Tools
+- Environment Variables
+- Error Handling
+- MongoDB Atlas Cloud Database
+- Development/Production Configurations
+
+## 🚀 Getting Started
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/expense-tracker-mern-stack.git
+```
+
+2. Install dependencies for backend
+```bash
+cd backend
+npm install
+```
+
+3. Install dependencies for frontend
+```bash
+cd frontend
+npm install
+```
+
+4. Create a .env file in the backend directory with your MongoDB connection string and port:
+```
+MONGO_URL=your_mongodb_connection_string
+PORT=5000
+```
+
+5. Start the backend server
+```bash
+cd backend
+npm run dev
+```
+
+6. Start the frontend application
+```bash
+cd frontend
+npm start
+```
+
+## 💡 Usage
+
+1. Register a new account or login
+2. Set up your profile avatar
+3. Start adding transactions with details like:
+   - Title
+   - Amount
+   - Category
+   - Date
+   - Transaction Type (Income/Expense)
+   - Description (optional)
+4. View your spending patterns in the analytics dashboard
+5. Filter transactions based on date range or type
+6. Toggle between table and chart views
+7. Edit or delete transactions as needed
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](../../issues).
+
+### Live Demo
+
+- Amplify URL: https://main.d1sj7cd70hlter.amplifyapp.com/
+- Vercel URL: https://expense-tracker-app-three-beryl.vercel.app/
 
 ## Objectives:
 

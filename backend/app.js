@@ -9,7 +9,7 @@ import transactionRoutes from "./Routers/Transactions.js";
 import userRoutes from "./Routers/userRouter.js";
 import path from "path";
 
-dotenv.config({ path: "./config/config.env" });
+dotenv.config();
 const app = express();
 
 const port = process.env.PORT;
@@ -17,6 +17,7 @@ const port = process.env.PORT;
 connectDB();
 
 const allowedOrigins = [
+  "http://localhost:3000",
   "https://main.d1sj7cd70hlter.amplifyapp.com",
   "https://expense-tracker-app-three-beryl.vercel.app",
   // add more origins as needed

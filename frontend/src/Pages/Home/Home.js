@@ -100,34 +100,38 @@ const Home = () => {
     if (
       !title ||
       !amount ||
-      !description ||
       !category ||
       !date ||
       !transactionType
     ) {
-      toast.error("Please enter all the fields", toastOptions);
+      toast.error("Please enter all the required fields", toastOptions);
+      return;
     }
     setLoading(true);
 
-    const { data } = await axios.post(addTransaction, {
-      title: title,
-      amount: amount,
-      description: description,
-      category: category,
-      date: date,
-      transactionType: transactionType,
-      userId: cUser._id,
-    });
+    try {
+      const { data } = await axios.post(addTransaction, {
+        title: title,
+        amount: amount,
+        description: description,
+        category: category,
+        date: date,
+        transactionType: transactionType,
+        userId: cUser._id,
+      });
 
-    if (data.success === true) {
-      toast.success(data.message, toastOptions);
-      handleClose();
-      setRefresh(!refresh);
-    } else {
-      toast.error(data.message, toastOptions);
+      if (data.success === true) {
+        toast.success(data.message, toastOptions);
+        handleClose();
+        setRefresh(!refresh);
+      } else {
+        toast.error(data.message, toastOptions);
+      }
+    } catch (err) {
+      toast.error("Something went wrong. Please try again.", toastOptions);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const handleReset = () => {
@@ -166,7 +170,7 @@ const Home = () => {
     };
 
     fetchAllTransactions();
-  }, [refresh, frequency, endDate, type, startDate]);
+  }, [refresh, frequency, endDate, type, startDate, cUser?._id]);
 
   const handleTableClick = (e) => {
     setView("table");

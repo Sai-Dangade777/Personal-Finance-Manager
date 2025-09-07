@@ -19,14 +19,13 @@ export const addTransactionController = async (req, res) => {
     if (
       !title ||
       !amount ||
-      !description ||
       !date ||
       !category ||
       !transactionType
     ) {
-      return res.status(408).json({
+      return res.status(400).json({
         success: false,
-        messages: "Please Fill all fields",
+        message: "Please fill all required fields"
       });
     }
 
