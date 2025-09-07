@@ -114,15 +114,6 @@ npm start
 6. Toggle between table and chart views
 7. Edit or delete transactions as needed
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](../../issues).
-
-### Live Demo
-
-- Amplify URL: https://main.d1sj7cd70hlter.amplifyapp.com/
-- Vercel URL: https://expense-tracker-app-three-beryl.vercel.app/
-
 ## Objectives:
 
     1. Simplify expense tracking for individuals and organizations.
