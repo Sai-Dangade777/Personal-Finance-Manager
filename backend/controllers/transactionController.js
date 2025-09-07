@@ -70,6 +70,14 @@ export const getAllTransactionController = async (req, res) => {
 
     console.log(userId, type, frequency, startDate, endDate);
 
+    // Validate that userId is a valid ObjectId string and not an object
+    if (typeof userId !== "string" || !userId || !require("mongoose").Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid userId",
+      });
+    }
+
     const user = await User.findById(userId);
 
     if (!user) {
