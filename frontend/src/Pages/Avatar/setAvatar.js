@@ -57,6 +57,7 @@ const SetAvatar = () => {
 
   const [selectedAvatar, setSelectedAvatar] = useState(undefined);
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [selectedSprite, setSelectedSprite] = React.useState(sprites[0]);
 
   useEffect(() => {
