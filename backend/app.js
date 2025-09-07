@@ -26,14 +26,15 @@ const allowedOrigins = [
 ];
 
 // Middleware
-app.use(express.json());
 app.use(
   cors({
     origin: allowedOrigins,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+app.options("*", cors()); // Enable pre-flight for all routes
+
+app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("dev"));
