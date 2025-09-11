@@ -83,25 +83,26 @@ const SetAvatar = () => {
   ]);
 
   const handleSpriteChange = (e) => {
-    setSelectedSprite(() => {
-      if (e.target.value.length > 0) {
+    const value = e.target.value;
+    // Validate that value is a member of the allowed sprites list
+    if (sprites.includes(value)) {
+      setSelectedSprite(() => {
         setLoading(true);
         const imgData = [];
         for (let i = 0; i < 4; i++) {
           imgData.push(
-            `https://api.dicebear.com/7.x/${
-              e.target.value
-            }/svg?seed=${randomName()}`
+            `https://api.dicebear.com/7.x/${value}/svg?seed=${randomName()}`
           );
         }
-
         setImgURL(imgData);
         // console.log(imgData);
         setLoading(false);
-      }
-
-      return e.target.value;
-    });
+        return value;
+      });
+    } else {
+      // Optional: Add error feedback if unexpected value
+      toast.error("Invalid avatar category selected!", toastOptions);
+    }
   };
 
   const setProfilePicture = async () => {
