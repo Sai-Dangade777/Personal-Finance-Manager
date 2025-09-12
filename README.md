@@ -233,7 +233,6 @@ create config folder and add config.env file in it and all all env variables the
 
 `PORT`: PORT number
 
-
 ## Tech Stack
 
 **Client:** React, Redux, react-bootstrap, Material Icons, tsparticles
