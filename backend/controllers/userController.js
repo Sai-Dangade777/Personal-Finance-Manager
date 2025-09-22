@@ -14,7 +14,7 @@ export const registerControllers = async (req, res, next) => {
             }) 
         }
 
-        let user = await User.findOne({email});
+        let user = await User.findOne({email: {$eq: email}});
 
         if(user){
             return res.status(409).json({
