@@ -14,7 +14,7 @@ router.route("/addTransaction").post(limiter, addTransactionController);
 
 router.route("/getTransaction").post(getAllTransactionController);
 
-router.route("/deleteTransaction/:id").post(deleteTransactionController);
+router.route("/deleteTransaction/:id").post(limiter, deleteTransactionController);
 
 router.route('/updateTransaction/:id').put(updateTransactionController);
 
