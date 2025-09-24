@@ -1,5 +1,6 @@
 import User from "../models/UserSchema.js";
 import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 export const registerControllers = async (req, res, next) => {
     try{
@@ -101,7 +102,15 @@ export const setAvatarController = async (req, res, next)=> {
     try{
 
         const userId = req.params.id;
-       
+
+        // Validate userId is a string and is a valid ObjectId
+        if (typeof userId !== "string" || !mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid user id.",
+            });
+        }
+
         const imageData = req.body.image;
       
         const userData = await User.findByIdAndUpdate(userId, {
